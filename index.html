@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cuadro Mágico 🔮</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fondo animado -->
+    <canvas id="background"></canvas>
+
+    <!-- Menú principal -->
+    <div id="menu">
+        <h1>Cuadro Mágico 🍃</h1>
+        <p>Seleccione una opción para empezar el juego:</p>
+        <div class="menu-buttons">
+            <div class="menu-item">
+                <button id="button-3x3" data-action="start3x3">3x3</button>
+            </div>
+            <div class="menu-item">
+                <button id="button-5x5" data-action="toggle5x5">5x5</button>
+                <!-- Submenú 5x5 -->
+                <div id="submenu-5x5" class="submenu">
+                    <button class="submenu-item" data-size="5" data-difficulty="easy">Fácil</button>
+                    <button class="submenu-item" data-size="5" data-difficulty="normal">Normal</button>
+                    <button class="submenu-item" data-size="5" data-difficulty="hard">Difícil</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <button id="button-7x7" data-action="toggle7x7">7x7</button>
+                <!-- Submenú 7x7 -->
+                <div id="submenu-7x7" class="submenu">
+                    <button class="submenu-item" data-size="7" data-difficulty="easy">Fácil</button>
+                    <button class="submenu-item" data-size="7" data-difficulty="normal">Normal</button>
+                    <button class="submenu-item" data-size="7" data-difficulty="hard">Difícil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vidas -->
+    <div id="vidasCard" style="display: none;">
+        <h3>Vidas</h3>
+        <p id="vidasCount">3</p>
+    </div>
+
+    <!-- Canvases para los juegos -->
+    <canvas id="gameCanvas" style="display: none;" width="300" height="300"></canvas>
+    <canvas id="canvas3x3" style="display: none;" width="300" height="300"></canvas>
+    <canvas id="canvas5x5" style="display: none;" width="300" height="300"></canvas>
+    <canvas id="canvas7x7" style="display: none;" width="300" height="300"></canvas>
+
+    <!-- Botón para regresar al menú -->
+    <button id="backButton" style="display: none;" onclick="backToMenu()">Regresar al Menú</button>
+
+    <!-- Scripts -->
+    <script src="menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="game/malla3x3.js"></script>
+    <script src="game/malla5x5.js"></script>
+    <script src="game/malla7x7.js"></script>
+</body>
+</html>
